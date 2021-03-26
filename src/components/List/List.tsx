@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import useUserFetch from '../../api/hooks/useUserFetch';
 
-import { User } from '../../api/hooks/interfaces';
+import Card from './Card';
+import { User } from '../../types/interfaces';
 
 function List(): JSX.Element {
   const [loading, error, users, hasMore] = useUserFetch(1);
@@ -10,7 +11,7 @@ function List(): JSX.Element {
     <Fragment>
       <ul>
         {users.map((user: User) => (
-          <li key={user.id}>{user.first}</li>
+          <Card key={user.id} {...user} />
         ))}
       </ul>
     </Fragment>

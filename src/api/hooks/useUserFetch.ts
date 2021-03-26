@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { RandomUser, User } from './interfaces';
+import { RandomUser, User } from '../../types/interfaces';
 
 /**
  * Custom hook that fetches users
