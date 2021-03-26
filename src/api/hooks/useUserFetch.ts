@@ -7,27 +7,30 @@ import { RandomUser, User } from '../../types/interfaces';
  * Custom hook that fetches users
  */
 export default function useUserFetch(pageNumber: number): [boolean, boolean, User[], boolean] {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
   const [hasMore, setHasMore] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     (async () => {
       try {
         const {
           data: { results },
         } = await axios.get('https://api.randomuser.me/', {
-          params: { results: 50, page: pageNumber },
+          params: {
+            results: 50,
+            page: pageNumber,
+            inc: 'login, name, picture, location, phone, cell, email',
+          },
         });
 
         const aggregatedUsers = results.map((user: RandomUser) => {
           return {
             id: user.login.uuid,
             email: user.email,
-            first: user.name.first,
-            last: user.name.last,
+            firstName: user.name.first,
+            lastName: user.name.last,
             username: user.login.username,
             picture: user.picture.thumbnail,
             street: `${user.location.street.number} ${user.location.street.name}`,
