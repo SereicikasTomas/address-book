@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
-import useUserFetch from '../../api/hooks/useUserFetch';
+import useUserFetch from 'api/hooks/useUserFetch';
 
 import Card from './Card';
-import { User } from '../../types/interfaces';
+import { User } from 'types/interfaces';
 
 function List(): JSX.Element {
   const [loading, error, users, hasMore] = useUserFetch(1);

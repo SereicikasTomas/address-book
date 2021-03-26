@@ -1,4 +1,4 @@
-import { User } from '../../../types/interfaces';
+import { User } from 'types/interfaces';
 
 function Card(props: User): JSX.Element {
   const { first } = props;
