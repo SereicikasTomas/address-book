@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
   },
   settings: {
     react: {
