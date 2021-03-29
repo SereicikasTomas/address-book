@@ -14,11 +14,12 @@ function List(): JSX.Element {
   const observer = useRef<IntersectionObserver>();
   const lastUserCardRef = useCallback(
     (node) => {
-      console.log(node);
       if (loading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) setPageNumber((prevState: number) => prevState + 1);
+        if (entries[0].isIntersecting && hasMore) {
+          setPageNumber((prevState: number) => prevState + 1);
+        }
       });
       if (node) observer.current.observe(node);
     },
@@ -28,8 +29,8 @@ function List(): JSX.Element {
   return (
     <Fragment>
       <Styled.List>
-        {users.map((user: User) => (
-          <Card key={user.id} {...user} />
+        {users.map((user: User, index: number) => (
+          <Card key={user.id} {...user} index={index} />
         ))}
       </Styled.List>
       {loading && <div>Loading...</div>}
