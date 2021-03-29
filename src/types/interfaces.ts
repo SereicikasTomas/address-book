@@ -22,8 +22,8 @@ export interface RandomUser {
 export interface User {
   id: string;
   email: string;
-  first: string;
-  last: string;
+  firstName: string;
+  lastName: string;
   username: string;
   picture: string;
   street: string;
@@ -32,4 +32,14 @@ export interface User {
   postcode: number;
   phone: string;
   cell: string;
+}
+
+export interface CardProps {
+  index: number;
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  picture: string;
 }
