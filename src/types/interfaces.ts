@@ -32,6 +32,7 @@ export interface User {
   postcode: number;
   phone: string;
   cell: string;
+  gradient: string;
 }
 
 export interface CardProps {
@@ -42,4 +43,5 @@ export interface CardProps {
   lastName: string;
   username: string;
   picture: string;
+  gradient: string;
 }
