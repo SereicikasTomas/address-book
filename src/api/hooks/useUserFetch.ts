@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { RandomUser, User } from '../../types/interfaces';
+import { generateGradient } from 'helper-functions';
 
 /**
  * Custom hook that fetches users
@@ -39,6 +40,7 @@ export default function useUserFetch(pageNumber: number): [boolean, boolean, Use
             postcode: user.location.postcode,
             phone: user.phone,
             cell: user.cell,
+            gradient: generateGradient(),
           };
         });
 
