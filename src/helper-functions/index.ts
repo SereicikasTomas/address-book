@@ -1,3 +1,7 @@
+/**
+ * Randomly selects gradient value from array
+ * @returns string of two rgb values
+ */
 export const generateGradient = (): string => {
   const gradients = [
     'rgb(43, 77, 130), rgb(40, 144, 172)',
