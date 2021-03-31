@@ -17,13 +17,14 @@ const appearAnimation = keyframes`
 export const Card = styled.li`
   position: relative;
   flex: 0 1 calc(25% - 3rem);
-  height: 30rem;
   animation: ${appearAnimation} 800ms backwards;
   animation-delay: ${({ delay }: CardType) => (delay % 50) * 150 + 'ms'};
   box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.1);
-  transition: transform 500ms;
+  transition: transform 500ms ease;
   border-radius: 15px;
 
+  /* using ::after pseudo element to 
+  create smoother box shadow animation */
   &::after {
     content: '';
     position: absolute;
@@ -50,7 +51,7 @@ export const Background = styled.div`
   background-image: linear-gradient(200deg, ${({ gradient }: BackgroundType) => gradient});
   height: 10rem;
   display: flex;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   border-radius: 15px;
 `;
 
@@ -63,5 +64,19 @@ export const Picture = styled.img`
 `;
 
 export const Information = styled.div`
-  padding: 3rem 1rem 2rem;
+  padding: 4rem 1.5rem 2rem;
+`;
+
+export const Name = styled.h3`
+  color: ${({ theme: { colorSecondary } }) => colorSecondary};
+`;
+
+export const Row = styled.div`
+  color: ${({ theme: { colorSecondary } }) => colorSecondary};
+  margin-top: 1rem;
+
+  p {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+  }
 `;
