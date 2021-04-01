@@ -2,7 +2,10 @@ import { Fragment, useRef, useState, useCallback } from 'react';
 import useUserFetch from 'api/hooks/useUserFetch';
 
 import Card from './Card';
+import Search from './Search';
 import { User } from 'types/interfaces';
+import Loader from 'template-components/Loader';
+import { ReactComponent as CogLogo } from 'assets/cog-solid.svg';
 
 import * as Styled from './styles';
 
@@ -28,13 +31,19 @@ function List(): JSX.Element {
 
   return (
     <Fragment>
+      <Styled.Header>
+        <Search />
+        <Styled.SettingsLink to="/settings">
+          <CogLogo />
+        </Styled.SettingsLink>
+      </Styled.Header>
       <Styled.List>
         {users.map((user: User, index: number) => (
           <Card key={user.id} {...user} index={index} />
         ))}
       </Styled.List>
-      {loading && <div>Loading...</div>}
-      {hasMore && <div ref={lastUserCardRef}>Last</div>}
+      {loading && <Loader />}
+      {hasMore && <div ref={lastUserCardRef}></div>}
     </Fragment>
   );
 }
