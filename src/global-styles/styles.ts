@@ -20,11 +20,12 @@ export default createGlobalStyle`
     line-height: 1.7;
     font-size: 1.6rem;
     color: ${({ theme: { colorSecondary } }) => colorSecondary};
-    background-color: ${({ theme: { colorPrimary } }) => colorPrimary};
+    background-color: ${({ theme: { backgroundColor } }) => backgroundColor};
   }
 
   #root {
     height: 100vh;
     width: 100vw;
+    padding: 5rem 15%;
   }
 `;

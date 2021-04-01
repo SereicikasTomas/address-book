@@ -16,12 +16,13 @@ const appearAnimation = keyframes`
 
 export const Card = styled.li`
   position: relative;
-  flex: 0 1 calc(25% - 3rem);
+  flex: 1 1 25rem;
   animation: ${appearAnimation} 800ms backwards;
-  animation-delay: ${({ delay }: CardType) => (delay % 50) * 150 + 'ms'};
-  box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.1);
+  animation-delay: ${({ delay }: CardType) => (delay % 50) * 100 + 'ms'};
+  box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.15);
   transition: transform 500ms ease;
   border-radius: 15px;
+  background: ${({ theme: { colorPrimary } }) => colorPrimary};
 
   /* using ::after pseudo element to 
   create smoother box shadow animation */
@@ -68,11 +69,10 @@ export const Information = styled.div`
 `;
 
 export const Name = styled.h3`
-  color: ${({ theme: { colorSecondary } }) => colorSecondary};
+  font-weight: 500;
 `;
 
 export const Row = styled.div`
-  color: ${({ theme: { colorSecondary } }) => colorSecondary};
   margin-top: 1rem;
 
   p {
