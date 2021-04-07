@@ -12,8 +12,30 @@ import * as Styled from './styles';
 function List(): JSX.Element {
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, error, users, hasMore] = useUserFetch(pageNumber);
-  console.log(loading, error, users, hasMore);
+  const [search, setSearch] = useState('');
+  const [searchlist, setSearchList] = useState<User[]>([]);
+  const isSearching = !!search.length;
 
+  /**
+   * Function used for filtering user list with provided search string
+   */
+  const searchUser = useCallback(
+    (search: string) => {
+      const filteredUsers = users.filter((user: User) => {
+        const fullName = `${user.firstName} ${user.lastName}`;
+        return fullName.includes(search);
+      });
+
+      setSearchList(filteredUsers);
+    },
+    [users],
+  );
+
+  /**
+   * Function that controls observer
+   * When observer is visible it updates page number and
+   * Which in result fetches more users with @see useUserFetch
+   */
   const observer = useRef<IntersectionObserver>();
   const lastUserCardRef = useCallback(
     (node) => {
@@ -29,21 +51,28 @@ function List(): JSX.Element {
     [loading, hasMore],
   );
 
+  /**
+   * Function renders Card components from provided array of users
+   * @param array of Users
+   * @returns JSX.Element
+   */
+  const renderCards = (array: User[]) =>
+    array.map((user: User, index: number) => <Card key={user.id} {...user} index={index} />);
+
   return (
     <Fragment>
       <Styled.Header>
-        <Search />
+        <Search value={search} setSearch={setSearch} searchUser={searchUser} />
         <Styled.SettingsLink to="/settings">
           <CogLogo />
         </Styled.SettingsLink>
       </Styled.Header>
-      <Styled.List>
-        {users.map((user: User, index: number) => (
-          <Card key={user.id} {...user} index={index} />
-        ))}
-      </Styled.List>
+      <Styled.List>{isSearching ? renderCards(searchlist) : renderCards(users)}</Styled.List>
       {loading && <Loader />}
-      {hasMore && <div ref={lastUserCardRef}></div>}
+      {hasMore && !isSearching && <span ref={lastUserCardRef} />}
+      {isSearching && !searchlist.length && <p>Nothing matches your search.</p>}
+      {!hasMore && <p>End of user catalog.</p>}
+      {error && <p>Error has occured.</p>}
     </Fragment>
   );
 }
