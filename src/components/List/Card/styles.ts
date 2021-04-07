@@ -6,21 +6,22 @@ type BackgroundType = { gradient: string };
 const appearAnimation = keyframes`
  0% {
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(-30px);
  }
  100% {
-  transform: translateY(0px);
   opacity: 1;
+  transform: translateY(0px);
  }
 `;
 
 export const Card = styled.li`
   position: relative;
   flex: 1 1 25rem;
-  animation: ${appearAnimation} 800ms backwards;
+  max-width: 40rem;
+  animation: ${appearAnimation} 600ms backwards;
   animation-delay: ${({ delay }: CardType) => (delay % 50) * 100 + 'ms'};
   box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.15);
-  transition: transform 500ms ease;
+  transition: transform 400ms ease;
   border-radius: 15px;
   background: ${({ theme: { colorPrimary } }) => colorPrimary};
 
@@ -35,7 +36,7 @@ export const Card = styled.li`
     bottom: 0;
     opacity: 0;
     box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, 0.3);
-    transition: opacity 500ms;
+    transition: opacity 400ms ease;
     z-index: -1;
     border-radius: 15px;
   }
