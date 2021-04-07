@@ -11,7 +11,7 @@ export default function useUserFetch(pageNumber: number): [boolean, boolean, Use
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
-  const [hasMore, setHasMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -46,7 +46,7 @@ export default function useUserFetch(pageNumber: number): [boolean, boolean, Use
 
         setUsers((prevUsers) => [...prevUsers, ...aggregatedUsers]);
         setLoading(false);
-        setHasMore(!(pageNumber > 20 || pageNumber === 20));
+        setHasMore(!(pageNumber >= 20));
       } catch (error) {
         console.error(error.message);
         setError(true);
