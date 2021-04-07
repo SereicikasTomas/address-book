@@ -7,6 +7,8 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 4rem;
   justify-content: flex-start;
+  margin-top: 14rem;
+  padding-bottom: 4rem;
 `;
 
 export const SettingsLink = styled(Link)`
@@ -46,6 +48,16 @@ export const SettingsLink = styled(Link)`
 `;
 
 export const Header = styled.div`
+  background: linear-gradient(
+    180deg,
+    ${({ theme: { backgroundColor } }) => backgroundColor} 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
   display: flex;
-  align-items: flex-start;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 7rem 15%;
+  z-index: 1;
 `;
