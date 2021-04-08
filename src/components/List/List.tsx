@@ -5,6 +5,7 @@ import Card from './Card';
 import Search from './Search';
 import { User } from 'types/interfaces';
 import Loader from 'template-components/Loader';
+import Message from 'template-components/Message';
 import { ReactComponent as CogLogo } from 'assets/cog-solid.svg';
 
 import * as Styled from './styles';
@@ -15,6 +16,7 @@ function List(): JSX.Element {
   const [search, setSearch] = useState('');
   const [searchlist, setSearchList] = useState<User[]>([]);
   const isSearching = !!search.length;
+  const noMatches = !searchlist.length;
 
   /**
    * Function used for filtering user list with provided search string
@@ -70,9 +72,10 @@ function List(): JSX.Element {
       <Styled.List>{isSearching ? renderCards(searchlist) : renderCards(users)}</Styled.List>
       {loading && <Loader />}
       {hasMore && !isSearching && <span ref={lastUserCardRef} />}
-      {isSearching && !searchlist.length && <p>Nothing matches your search.</p>}
-      {!hasMore && <p>End of user catalog.</p>}
-      {error && <p>Error has occured.</p>}
+      {isSearching && noMatches && <Message type="noMatch" />}
+      {isSearching && <Message type="searching" />}
+      {!hasMore && <Message type="end" />}
+      {error && <Message type="error" />}
     </Fragment>
   );
 }
