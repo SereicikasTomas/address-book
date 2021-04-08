@@ -45,3 +45,7 @@ export interface CardProps {
   picture: string;
   gradient: string;
 }
+
+export interface Messages {
+  [key: string]: string;
+}

@@ -3,3 +3,7 @@ export type SearchProps = {
   setSearch: (value: string) => void;
   searchUser: (search: string) => void;
 };
+
+export type MessageProps = {
+  type: string;
+};
