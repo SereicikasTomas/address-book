@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import App from './components/App';
-import { lightTheme } from './global-styles/themes';
+import { lightTheme, darkTheme } from './global-styles/themes';
 import GlobalStyles from './global-styles/styles';
+import { getFromLS } from 'helper-functions';
 
 function RootComponent() {
+  const selectedTheme = getFromLS('theme') === 'light' ? lightTheme : darkTheme;
+
   return (
     <React.StrictMode>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={selectedTheme}>
         <BrowserRouter>
           <GlobalStyles />
           <App />
