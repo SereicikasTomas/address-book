@@ -14,3 +14,24 @@ export const generateGradient = (): string => {
 
   return gradients[Math.floor(Math.random() * gradients.length)];
 };
+
+/**
+ * Sets value to localStorage
+ * @param key
+ * @param value
+ */
+export const setToLS = (key: string, value: string): void => {
+  window.localStorage.setItem(key, JSON.stringify(value));
+};
+
+/**
+ * Gets value from localStorage
+ * @param key
+ */
+export const getFromLS = (key: string): string | undefined => {
+  const value = window.localStorage.getItem(key);
+
+  if (value) {
+    return JSON.parse(value);
+  }
+};
