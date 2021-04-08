@@ -22,7 +22,7 @@ export const Card = styled.li`
   animation-delay: ${({ delay }: CardType) => (delay % 50) * 100 + 'ms'};
   box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.15);
   transition: transform 400ms ease;
-  border-radius: 15px;
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   background: ${({ theme: { colorPrimary } }) => colorPrimary};
 
   /* using ::after pseudo element to 
@@ -38,7 +38,7 @@ export const Card = styled.li`
     box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, 0.3);
     transition: opacity 400ms ease;
     z-index: -1;
-    border-radius: 15px;
+    border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   }
 
   &:hover {
@@ -54,7 +54,7 @@ export const Background = styled.div`
   height: 10rem;
   display: flex;
   padding-left: 1.5rem;
-  border-radius: 15px;
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
 `;
 
 export const Picture = styled.img`
@@ -62,7 +62,7 @@ export const Picture = styled.img`
   border-radius: 50%;
   border: 2px solid ${({ theme: { colorPrimary } }) => colorPrimary};
   transform: translateY(50%);
-  border-radius: 15px;
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
 `;
 
 export const Information = styled.div`

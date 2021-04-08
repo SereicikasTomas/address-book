@@ -7,13 +7,11 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 4rem;
   justify-content: flex-start;
-  margin-top: 14rem;
-  padding-bottom: 4rem;
 `;
 
 export const SettingsLink = styled(Link)`
   padding: 1rem;
-  border-radius: 15px;
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   background: ${({ theme: { colorPrimary } }) => colorPrimary};
   box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
   position: relative;

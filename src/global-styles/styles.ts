@@ -24,8 +24,8 @@ export default createGlobalStyle`
   }
 
   #root {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    padding: 5rem 15%;
+    padding: 20rem 15% 4rem;
   }
 `;
