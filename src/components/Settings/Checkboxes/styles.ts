@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
-  display: flex;
-`;
-
 export const Label = styled.label`
   cursor: pointer;
   user-select: none;
   font-size: 1.8rem;
-  margin-right: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
