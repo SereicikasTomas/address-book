@@ -20,6 +20,7 @@ export default createGlobalStyle`
     font-size: 1.6rem;
     color: ${({ theme: { colorSecondary } }) => colorSecondary};
     background-color: ${({ theme: { backgroundColor } }) => backgroundColor};
+    transition: color 400ms ease;
   }
 
   #root {
