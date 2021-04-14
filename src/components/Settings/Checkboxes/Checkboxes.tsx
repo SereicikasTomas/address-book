@@ -16,6 +16,9 @@ function Checkbox(): JSX.Element {
   const [nationalities, setNationalities] = useState(initState as Nationalities);
   const keysArray = Object.keys(nationalities);
 
+  /**
+   * Set value to state and localStorage onChange event
+   */
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.currentTarget;
     setNationalities((prevState) => ({ ...prevState, [name]: checked }));

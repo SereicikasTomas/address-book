@@ -75,6 +75,6 @@ export const Row = styled.div`
   p {
     margin-top: 0.5rem;
     margin-left: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 `;

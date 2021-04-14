@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type SearchProps = {
   value: string;
   setSearch: (value: string) => void;
@@ -17,4 +19,8 @@ export type CardProps = {
   username: string;
   picture: string;
   gradient: string;
+};
+
+export type ThemeContextProps = {
+  children: ReactNode;
 };
