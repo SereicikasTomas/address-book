@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { RandomUser, User } from '../../types/interfaces';
-import { generateGradient } from 'helper-functions';
+import { Nationalities, RandomUser, User } from 'types/interfaces';
+import { generateGradient, getFromLS } from 'helper-functions';
 
 /**
  * Custom hook that fetches users
@@ -14,6 +14,10 @@ export default function useUserFetch(pageNumber: number): [boolean, boolean, Use
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
+    const nationalities = getFromLS('nationalities') as Nationalities;
+    const keysArray = nationalities ? Object.keys(nationalities) : [];
+    const filteredArray = keysArray.filter((key: string) => nationalities[key]);
+
     (async () => {
       try {
         const {
@@ -23,6 +27,7 @@ export default function useUserFetch(pageNumber: number): [boolean, boolean, Use
             results: 50,
             page: pageNumber,
             inc: 'login, name, picture, location, phone, cell, email',
+            nat: filteredArray.join(','),
           },
         });
 
