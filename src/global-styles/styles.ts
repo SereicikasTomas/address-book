@@ -17,7 +17,6 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
-    line-height: 1.7;
     font-size: 1.6rem;
     color: ${({ theme: { colorSecondary } }) => colorSecondary};
     background-color: ${({ theme: { backgroundColor } }) => backgroundColor};
@@ -26,6 +25,14 @@ export default createGlobalStyle`
   #root {
     min-height: 100vh;
     width: 100vw;
-    padding: 20rem 15% 4rem;
+    padding: 7rem 15% 4rem;
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+
+  h3 {
+    font-weight: 500;
   }
 `;
