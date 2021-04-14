@@ -1,3 +1,5 @@
+import { Nationalities } from 'types/interfaces';
+
 /**
  * Randomly selects gradient value from array
  * @returns string of two rgb values
@@ -20,7 +22,7 @@ export const generateGradient = (): string => {
  * @param key
  * @param value
  */
-export const setToLS = (key: string, value: string): void => {
+export const setToLS = (key: string, value: string | Nationalities): void => {
   window.localStorage.setItem(key, JSON.stringify(value));
 };
 
@@ -28,7 +30,7 @@ export const setToLS = (key: string, value: string): void => {
  * Gets value from localStorage
  * @param key
  */
-export const getFromLS = (key: string): string | undefined => {
+export const getFromLS = (key: string): Nationalities | string | undefined => {
   const value = window.localStorage.getItem(key);
 
   if (value) {
