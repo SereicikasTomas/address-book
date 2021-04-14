@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { setToLS, getFromLS } from 'helper-functions';
+import { useTheme } from 'api/context/themeContext';
 
 import { ReactComponent as Moon } from 'assets/moon-solid.svg';
 import { ReactComponent as Sun } from 'assets/sun-solid.svg';
@@ -8,13 +8,14 @@ import { ReactComponent as Sun } from 'assets/sun-solid.svg';
 import * as Styled from './styles';
 
 function ThemeSwitch(): JSX.Element {
-  const theme = getFromLS('theme') === 'light';
-  const [isLight, setIsLight] = useState(theme);
+  const { theme, toggleTheme } = useTheme();
+  const themeBoolean = theme === 'light';
+  const [isLight, setIsLight] = useState(themeBoolean);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = event.currentTarget;
     setIsLight(checked);
-    setToLS('theme', checked ? 'light' : 'dark');
+    toggleTheme();
   };
 
   return (
