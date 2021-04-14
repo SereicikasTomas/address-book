@@ -3,10 +3,10 @@ import { CardProps } from 'types/types';
 import * as Styled from './styles';
 
 function Card(props: CardProps): JSX.Element {
-  const { firstName, lastName, email, picture, index, gradient, username } = props;
+  const { firstName, lastName, email, picture, index, gradient, username, setModal } = props;
 
   return (
-    <Styled.Card delay={index}>
+    <Styled.Card delay={index} onClick={() => setModal((prevState) => ({ ...prevState, open: true, user: props }))}>
       <Styled.Background gradient={gradient}>
         <Styled.Picture src={picture} alt="User picture" />
       </Styled.Background>

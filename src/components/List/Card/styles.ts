@@ -20,10 +20,11 @@ export const Card = styled.li`
   max-width: 40rem;
   animation: ${appearAnimation} 600ms backwards;
   animation-delay: ${({ delay }: CardType) => (delay % 50) * 100 + 'ms'};
-  box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.15);
-  transition: transform 400ms ease;
+  box-shadow: ${({ theme: { boxShadow } }) => boxShadow};
+  transition: transform 300ms cubic-bezier(0.47, 0, 0.745, 0.715);
   border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   background: ${({ theme: { colorPrimary } }) => colorPrimary};
+  cursor: pointer;
 
   /* using ::after pseudo element to 
   create smoother box shadow animation */
@@ -35,8 +36,8 @@ export const Card = styled.li`
     right: 0;
     bottom: 0;
     opacity: 0;
-    box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, 0.3);
-    transition: opacity 400ms ease;
+    box-shadow: ${({ theme: { boxShadowHover } }) => boxShadowHover};
+    transition: opacity 300ms cubic-bezier(0.47, 0, 0.745, 0.715);
     z-index: -1;
     border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   }
