@@ -2,6 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 const generalStyles = {
   borderRadius: '15px',
+  boxShadow: '0 1rem 2rem 0 rgba(0, 0, 0, 0.2)',
 };
 
 export const darkTheme: DefaultTheme = {
