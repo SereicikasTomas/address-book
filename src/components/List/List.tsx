@@ -1,5 +1,5 @@
 import { Fragment, useRef, useState, useCallback } from 'react';
-import useUserFetch from 'api/hooks/useUserFetch';
+import useUserFetch from 'api/custom-hooks/useUserFetch';
 
 import Card from './Card';
 import Search from './Search';
