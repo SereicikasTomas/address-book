@@ -3,18 +3,26 @@ import useUserFetch from 'api/custom-hooks/useUserFetch';
 
 import Card from './Card';
 import Search from './Search';
+import Modal from './Modal';
+
 import { User } from 'types/interfaces';
+import { ModalState } from 'types/types';
+
 import Loader from 'template-components/Loader';
 import Message from 'template-components/Message';
+
 import { ReactComponent as CogLogo } from 'assets/cog-solid.svg';
 
 import * as Styled from './styles';
 
 function List(): JSX.Element {
   const [pageNumber, setPageNumber] = useState(1);
-  const [loading, error, users, hasMore] = useUserFetch(pageNumber);
   const [search, setSearch] = useState('');
   const [searchlist, setSearchList] = useState<User[]>([]);
+  const [modal, setModal] = useState<ModalState>({ open: false, user: null });
+
+  const [loading, error, users, hasMore] = useUserFetch(pageNumber);
+
   const isSearching = !!search.length;
   const noMatches = !searchlist.length;
 
@@ -59,13 +67,13 @@ function List(): JSX.Element {
    * @returns JSX.Element
    */
   const renderCards = (array: User[]) =>
-    array.map((user: User, index: number) => <Card key={user.id} {...user} index={index} />);
+    array.map((user: User, index: number) => <Card key={user.id} {...user} setModal={setModal} index={index} />);
 
   return (
     <Fragment>
+      <Modal modalState={modal} setModal={setModal} />
       <Styled.Header>
         <Search value={search} setSearch={setSearch} searchUser={searchUser} />
-
         <Styled.SettingsLink to="/settings">
           <CogLogo />
         </Styled.SettingsLink>
