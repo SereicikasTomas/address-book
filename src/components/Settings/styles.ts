@@ -41,5 +41,7 @@ export const Body = styled.div`
 
 export const Section = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   margin: 2rem;
 `;
