@@ -12,7 +12,7 @@ export const darkTheme: DefaultTheme = {
   colorSecondary: '#F5F5F5',
   accentColor: '#00C6CF',
   backgroundColor: '#253839',
-  backdropColor: 'rgba(0, 0, 0, 0.3)',
+  backdropColor: 'rgba(0, 0, 0, 0.5)',
 };
 
 export const lightTheme: DefaultTheme = {
@@ -21,5 +21,5 @@ export const lightTheme: DefaultTheme = {
   colorSecondary: '#324B4C',
   accentColor: '#068488',
   backgroundColor: '#eaeaea',
-  backdropColor: 'rgba(240, 240, 240, 0.3)',
+  backdropColor: 'rgba(240, 240, 240, 0.5)',
 };

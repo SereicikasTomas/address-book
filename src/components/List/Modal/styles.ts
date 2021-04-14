@@ -33,7 +33,7 @@ export const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme: { backdropColor } }) => backdropColor};
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
   animation: ${backdropAppear} 300ms cubic-bezier(0.23, 1, 0.32, 1);
 
   svg {
@@ -56,7 +56,7 @@ export const Backdrop = styled.div`
 export const Modal = styled.div`
   background: ${({ theme: { colorPrimary } }) => colorPrimary};
   animation: ${modalAppear} 300ms cubic-bezier(0.47, 0, 0.745, 0.715) backwards;
-  box-shadow: ${({ theme: { boxShadow } }) => boxShadow};
+  box-shadow: ${({ theme: { boxShadowHover } }) => boxShadowHover};
   border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   animation-delay: 300ms;
   width: 45rem;
