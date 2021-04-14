@@ -7,6 +7,7 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 4rem;
   justify-content: flex-start;
+  margin-top: 13rem;
 `;
 
 export const SettingsLink = styled(Link)`

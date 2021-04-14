@@ -65,11 +65,14 @@ function List(): JSX.Element {
     <Fragment>
       <Styled.Header>
         <Search value={search} setSearch={setSearch} searchUser={searchUser} />
+
         <Styled.SettingsLink to="/settings">
           <CogLogo />
         </Styled.SettingsLink>
       </Styled.Header>
+
       <Styled.List>{isSearching ? renderCards(searchlist) : renderCards(users)}</Styled.List>
+
       {loading && <Loader />}
       {hasMore && !isSearching && <span ref={lastUserCardRef} />}
       {isSearching && noMatches && <Message type="noMatch" />}
