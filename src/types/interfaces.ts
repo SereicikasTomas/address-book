@@ -35,17 +35,10 @@ export interface User {
   gradient: string;
 }
 
-export interface CardProps {
-  index: number;
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  username: string;
-  picture: string;
-  gradient: string;
-}
-
 export interface Messages {
   [key: string]: string;
+}
+
+export interface Nationalities {
+  [key: string]: boolean;
 }

@@ -7,3 +7,14 @@ export type SearchProps = {
 export type MessageProps = {
   type: string;
 };
+
+export type CardProps = {
+  index: number;
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  picture: string;
+  gradient: string;
+};
