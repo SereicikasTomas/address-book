@@ -69,14 +69,11 @@ export const Information = styled.div`
   padding: 4rem 1.5rem 2rem;
 `;
 
-export const Name = styled.h3`
-  font-weight: 500;
-`;
-
 export const Row = styled.div`
-  margin-top: 1rem;
+  margin-top: 2rem;
 
   p {
+    margin-top: 0.5rem;
     margin-left: 1rem;
     font-size: 1.2rem;
   }
