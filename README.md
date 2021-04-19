@@ -7,8 +7,8 @@ This is a web app that fetches fake user info from randomuser.me on scroll.
 - styled-components
 
 ## Screenshots
-![Screenshot](public/darkScreenshot.png?raw=true)
-![Screenshot](public/lightScreenshot.png?raw=true)
+![Screenshot](public/screenshotDark.png?raw=true)
+![Screenshot](public/screenshotLight.png?raw=true)
 
 ## Development
 To run the app locally:
