@@ -29,11 +29,7 @@ export default createGlobalStyle`
     padding: 7rem 15% 4rem;
   }
 
-  h2 {
-    font-weight: 500;
-  }
-
-  h3 {
+  h2, h3 {
     font-weight: 500;
   }
 `;
