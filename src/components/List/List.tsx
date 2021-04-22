@@ -24,7 +24,15 @@ function List(): JSX.Element {
   const [loading, error, users, hasMore] = useUserFetch(pageNumber);
 
   const isSearching = !!search.length;
-  const noMatches = !searchlist.length;
+  const noMatch = !searchlist.length && isSearching;
+
+  const showMessage = noMatch || isSearching || !hasMore || error;
+  const messages = {
+    noMatch,
+    searching: isSearching,
+    end: !hasMore,
+    error,
+  };
 
   /**
    * Function used for filtering user list with provided search string
@@ -82,11 +90,10 @@ function List(): JSX.Element {
       <Styled.List>{isSearching ? renderCards(searchlist) : renderCards(users)}</Styled.List>
 
       {loading && <Loader />}
+
       {hasMore && !isSearching && <span ref={lastUserCardRef} />}
-      {isSearching && noMatches && <Message type="noMatch" />}
-      {isSearching && <Message type="searching" />}
-      {!hasMore && <Message type="end" />}
-      {error && <Message type="error" />}
+
+      {showMessage && <Message types={messages} />}
     </Fragment>
   );
 }

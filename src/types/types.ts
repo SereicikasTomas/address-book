@@ -8,7 +8,9 @@ export type SearchProps = {
 };
 
 export type MessageProps = {
-  type: string;
+  types: {
+    [key: string]: boolean;
+  };
 };
 
 export type ModalState = {
