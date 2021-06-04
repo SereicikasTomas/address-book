@@ -25,7 +25,7 @@ export default createGlobalStyle`
 
   #root {
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     padding: 7rem 15% 4rem;
   }
 

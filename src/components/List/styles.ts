@@ -52,7 +52,7 @@ export const Header = styled.div`
     ${({ theme: { backgroundColor } }) => backgroundColor} 65%,
     rgba(0, 0, 0, 0) 100%
   );
-  
+
   display: flex;
   position: fixed;
   width: 100%;
